@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>hello</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+<script>
+  'use strict';
+
+  function defen(f,ms) {
+    return function () {
+      setTimeout( () =>  f.apply(this,arguments),ms )
+    }
+  }
+  function say(who,whe) {
+    console.log("hi"+ who + whe);
+  }
+  let sayhi = defen(say,2000);
+  //sayhi("Вася","pip");
+
+  let allModel = {};
+  function createModel(Model,...arg) {
+    let model = new Model(arg);
+    model._id = Math.random().toString(36).slice(2);
+    allModel[model._id] = model;
+    return model;
+  }
+  let user = createModel(
+    class User{
+      constructor(name){
+        this.name = name;
+      }
+      say(){
+        console.log("hi " + this.name);
+      }
+    },"Vasa","Peta","Nasta"
+  );
+  //user.say();
+  //user.say();
+
+
+  let users = {};
+  let proxy = new Proxy(users,{
+   get(target){
+     console.log("чтение");
+     return target;
+   }
+  },{
+    set(target) {
+      console.log(`Запись ${prop} ${value}`);
+      target[prop] = value;
+      return true;
+    }
+    }
+  );
+  proxy.first = "bla";
+  proxy.first;
+  console.log(users);
+
+
+
+
+
+
+
+
+
+</script>
+
+</head>
+<body>
+    ес 2015
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>hello</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <style>
+      .alert {
+        padding: 15px;
+        border: 1px solid #d6e9c6;
+        border-radius: 4px;
+        color: #3c763d;
+        background-color: #dff0d8;
+      }
+      .log {
+        padding: 15px;
+        border: 1px solid #d6e9c6;
+        border-radius: 4px;
+        color: #fff;
+        background-color: #000;
+      }
+    </style>
+    <link rel="stylesheet" href="../../TRANZITE/https@medicina-narodov-b.ru/152_ru_papil_klinistil/index.css">
+
+  </head>
+<body>
+  <div class="alert">
+    <strong>Ура!</strong> Вы прочитали это важное сообщение.
+  </div>
+  
+  <div id="widget" class="qp" data-qwert="menu" data-widget-value="0">Выберите жанр</div>
+  
+  <div id="one">one</div>
+  <div id="two">two</div>
+
+  <div data-widget-name="menu">Choose the genre</div>
+  <ol id="elem">
+    <li>Привет</li>
+    <li>Мир</li>
+  </ol>
+
+
+  <script>
+  
+    var elem = document.getElementById('elem');
+    function clear(elm) {
+      var n = elm.childNodes;
+      for(let i = 0;i < elm.childNodes.length;i++){
+        elm.childNodes[i].remove();
+      }
+      console.log(n);
+    }
+    clear(elem);
+
+    
+  
+    
+    
+    /*
+    
+    // получаем все атрибуты обьекта
+    var elem = document.getElementById('widget');
+    function getAttr(elem){
+        var element = {}
+        for(var i = 0;i < elem.attributes.length;i++){
+            //console.log( elem.attributes.length);
+            var at = elem.attributes[i];
+            if((at.name !== 'id') && (at.name !== 'class')){
+                element[at.name] = elem.getAttribute(at.name);
+            }
+            
+        }
+        
+        return element;
+    }
+    var attr = getAttr(elem);
+    console.log(attr);
+    
+    
+    // проходим по id
+    var secton = document.getElementById('one');
+    function getElements(){
+        var element = {}
+        for(var i = 0; i < arguments.length;i++){
+            var id = arguments[i];
+            var ele = document.getElementById(id);
+            
+            element[id] = ele;
+            //console.log(element);
+        }
+        return element;
+    }
+    var elem = getElements('one','two');
+
+    console.log(elem.one);
+    */
+    
+
+  </script>
+</body>
+</html>

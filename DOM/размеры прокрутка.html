@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>hello</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <style>
+      .alert {
+        padding: 15px;
+        border: 1px solid #d6e9c6;
+        border-radius: 4px;
+        color: #3c763d;
+        background-color: #dff0d8;
+      }
+      .log {
+        padding: 15px;
+        border: 1px solid #d6e9c6;
+        border-radius: 4px;
+        color: #fff;
+        background-color: #000;
+      }
+    </style>
+    <style>
+      #example {
+        width: 300px;
+        height: 5200px;
+        border: 25px solid #E8C48F;
+        padding: 20px;
+        overflow: auto;
+        font-size: 55px;
+        line-height: 80px;
+      }
+    </style>
+
+
+  </head>
+<body>
+  <div class="alert">
+    <strong>Ура!</strong> Вы прочитали это важное сообщение.
+  </div>
+
+  <ul id="ul">
+    <li id="one">1</li>
+    <li id="two">4</li>
+
+  </ul>
+
+  <div style="position: relative" class="meins" id="main">
+    <article>
+      <div id="example">. ...Текст.... ...Текст.... ...Текст.... ...Текст.... ...Текст.... ...Текст.... ...Текст.... ...Текст.... ...Текст.... ...Текст.... ...Текст.... ...Текст.... ...Текст.... ...Текст...</div>
+    </article>
+  </div>
+
+
+<script>
+  /*
+  var myscrol = {
+    myscrollBy:function () {
+
+    }
+  };
+  */
+
+ function myscrollBy(up) {
+  var top = document.documentElement.scrollTop;
+   var i;
+   return function () {
+     return i = top++;
+   }
+ }
+ var q = myscrollBy(500);
+
+
+
+  console.log(q());
+  console.log(q());
+  console.log(q());
+
+
+
+
+</script>
+</body>
+</html>

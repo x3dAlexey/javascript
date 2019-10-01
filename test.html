@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>hello</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+<script>
+
+
+  function Counter() {
+    var count = [];
+    var limited = 5;
+    /*
+    this.getcount = function () {
+      return function () {
+        for (var i = 0; i < arguments.length; i++){
+          count.push(arguments[i]);
+
+        }
+      }
+    }
+    */
+    this.getcount = function () {
+
+      for (var i = 0; i < arguments.length; i++){
+        if(limited > count) break;
+        count.push(arguments[i]);
+
+      }
+    }
+
+    this.get =  function () {
+      console.log(count);
+    }
+
+  }
+  var cont = new Counter();
+
+  console.log(cont.getcount(1,2,3));
+  console.log(cont.getcount(5,6));
+  cont.get();
+
+
+
+  function Jarvis(name){
+    this.firstname = name;
+    var self = this;
+
+    function onHelo() {
+       alert("Здравствуйте " + self.firstname);
+    }
+    this.helloworld = function(){
+      
+      console.log(setTimeout(function(){onHelo()},1000)); 
+      //setTimeout(function(){onHelo()},1000);
+    }
+     
+  }
+
+  var obj = new Jarvis("Вася");
+
+  
+  
+   
+    // ['barney', 'fred']
+  
+   
+   
+    
+
+    
+    
+    
+       
+</script>
+
+    <style>
+      .q{
+        background-color: #0d0d0d;
+        width: 100%;
+        height: 500px;
+      }
+      @media screen and (min-device-width: 1280px) and (max-device-width: 1920px){
+        .q{
+          background-color: #0d88c1;
+          height: 200px;
+        }
+      }
+
+    </style>
+
+</head>
+<body>
+    <div class="q">wwwww</div>
+</body>
+</html>

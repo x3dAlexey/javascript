@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>hello</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <style>
+      .alert {
+        padding: 15px;
+        border: 1px solid #d6e9c6;
+        border-radius: 4px;
+        color: #3c763d;
+        background-color: #dff0d8;
+      }
+      .log {
+        padding: 15px;
+        border: 1px solid #d6e9c6;
+        border-radius: 4px;
+        color: #fff;
+        background-color: #000;
+      }
+    </style>
+    <link rel="stylesheet" href="../../TRANZITE/https@medicina-narodov-b.ru/152_ru_papil_klinistil/index.css">
+
+  </head>
+<body>
+  <div class="alert">
+    <strong>Ура!</strong> Вы прочитали это важное сообщение.
+  </div>
+
+  <ul id="ul">
+    <li id="one">1</li>
+    <li id="two">4</li>
+  </ul>
+
+
+
+  <script>
+
+    li = {
+      'li':2,
+      'li':3
+    };
+
+    let ul = document.getElementById('ul')
+    var q = ul.firstElementChild;
+
+    for (let i = 0; ul.childElementCount;i++) {
+      for (let list in li) {
+        var lel = document.createElement(list);
+        lel.innerHTML = li[list];
+        ul.children[0].appendChild(lel)
+        console.log(lel);
+      }
+    }
+
+
+    /*
+    var li = document.createElement('li');
+    var text = document.createTextNode('text');
+    li.appendChild(text);
+    document.body.appendChild(list);
+    list.appendChild(li);
+
+
+    var data = {
+      "Рыбы": {
+        "Форель": {},
+        "Щука": {}
+      },
+
+      "Деревья": {
+        "Хвойные": {
+          "Лиственница": {},
+          "Ель": {}
+        },
+        "Цветковые": {
+          "Берёза": {},
+          "Тополь": {}
+        }
+      }
+    };
+
+    */
+
+    //
+
+    /*
+      function createList() {
+    /*
+        var list = document.createElement('ul');
+        var cild = document.createElement('li');
+        cild.innerHTML = iner;
+        list.appendChild(cild);
+
+
+
+        return function (mass) {
+          return console.log(mass);
+        };
+
+
+
+      }
+      */
+
+
+    //document.body.appendChild(createList());
+
+/*
+
+    function create(obj) {
+      var q = createList();
+
+      for(let lvl1 in obj){
+        console.log(q(lvl1));
+        console.log("ul -" + lvl1);
+
+
+
+
+        for(let lvl2 in obj[lvl1]){
+          console.log("li --" + lvl2);
+
+          for(let lvl3 in obj[lvl1][lvl2]){
+            console.log("doc ul --"+lvl3);
+          }
+        }
+
+      }
+    }
+    create(data);
+
+
+
+    /*
+
+       // создаем элемент, присваиваем класс и текст
+       var div = document.createElement('div');
+       var textnode =  document.createTextNode('Тут я был');
+       div.className = "log main";
+       div.innerHTML = "<strong>Ура!</strong> Вы прочитали это важное сообщение.";
+       // добавляем перед алертом
+       document.body.insertBefore(div,document.querySelector('.alert'));
+       // клонируем див, с полным содержимым
+       var div2 = div.cloneNode(true);
+       // находим в клоне strong и добавлем ему СУПЕР
+       div2.querySelector('strong').innerHTML += "СУПЕР!!!";
+       // берем орегинал ДИВ, смотрим его родителя это body, добавслем клон, после нашего дива!
+       div.parentNode.insertBefore(div2,div.nextSibling);
+       div.appendChild(textnode);
+       //console.log(div);
+       */
+
+  </script>
+</body>
+</html>

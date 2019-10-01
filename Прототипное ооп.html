@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>hello</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <script>
+        var animal = {
+          east:true
+        };
+        var rabit = {
+          jump:true,
+
+        };
+
+        function Rabit(name) {
+          this.name = name;
+        }
+        Rabit.prototype = animal;
+        Rabit.prototype = {
+          constructor: Rabit
+        };
+
+        var rabbit = new Rabit("Кроль");
+        var rabbit2 = new rabbit.constructor("Крольчиха");
+        //////////////////////////
+        function Menu(obj) {
+          obj = Object.create(obj);
+          obj.wicth = 200;
+
+        }
+        var option = {
+          wicth:100,
+          heigt:200
+        };
+        var menu = new Menu(option);
+        var menu2 = Object.create(menu);
+
+
+        function f(a,b) {
+          console.log(a + b);
+
+        }
+        Function.prototype.defer = function (ms) {
+          var f = this;
+          return function () {
+            var context = this;
+            var arg = arguments;
+
+            var mass = [];
+            mass.forEach(function (item,arguments) {
+              console.log(arguments);
+            });
+
+
+            setTimeout(
+              function () {
+                f.apply(null,arg);
+              }
+              ,ms);
+
+          }
+        }
+        //f.defer(1000)(1, 2);
+
+    </script>
+    <script>
+        function Animal(name) {
+          this.speed = 0;
+          this.name = name;
+
+        }
+        Animal.prototype.run =  function (speed) {
+          this.speed = speed;
+          console.log(this.name + "скорость: "+ this.speed);
+        }
+        Animal.prototype.stop = function () {
+          this.speed = 0;
+          console.log(this.name + " стоит");
+        }
+        var animal = new Animal("Кроль");
+        //animal.run(500);
+
+        function Kon(name,type) {
+          Animal.apply(this,arguments);
+          this.type = type;
+          //this.name = name;
+          //this.type = type;
+        }
+        Kon.prototype = Object.create(Animal.prototype);
+        Kon.prototype.constructor = Kon;
+        
+        Kon.prototype.run = function () {
+          Animal.prototype.run.apply(this,arguments);
+          //console.log("тип : " + this.type);
+        }
+        Kon.prototype.type = function () {
+          //console.log(this.type);
+        }
+        
+        
+        var kon = new Kon("Василий","Мустанг");
+
+        //kon.run(200);
+        //kon.stop();
+        //console.log(Kon);
+    </script>
+    <script>
+        function CoffeeMachine(power) {
+          this.power = power;
+          this.waterAmout = 0;
+
+        }
+        CoffeeMachine.prototype.WATER_HEAT_CAPACITY = 0;
+
+        CoffeeMachine.prototype.getTimeToBoil = function () {
+          return this.waterAmount * this.WATER_HEAT_CAPACITY * 80 / this.power;
+        }
+        CoffeeMachine.prototype.run = function() {
+          setTimeout(function() {
+            alert( 'Кофе готов!' );
+          }, this.getTimeToBoil());
+        };
+        CoffeeMachine.prototype.setWaterAmount = function(amount) {
+          this.waterAmount = amount;
+        };
+
+        var coffeeMachine = new CoffeeMachine(10000);
+        //coffeeMachine.setWaterAmount(50);
+        //coffeeMachine.run();
+
+    </script>
+    <script>
+          function Hamster() {
+            this.food = [];
+          }
+
+          //Hamster.prototype.food = []; // пустой "живот"
+
+          Hamster.prototype.found = function(something) {
+            this.food.push(something);
+          };
+
+          // Создаём двух хомяков и кормим первого
+          var speedy = new Hamster();
+          var lazy = new Hamster();
+
+          speedy.found("яблоко");
+          speedy.found("орех");
+
+          //console.log(speedy.food.length);
+          //console.log(lazy.food.length);
+
+    </script>
+    <script>
+        // примеси
+        var sayHimix = {
+          sayhi:function () {
+            console.log("hi" + this.name );
+          },
+          sayby:function () {
+            console.log("by" + this.name );
+          }
+        };
+        function User(name) {
+          this.name = name;
+        }
+        /*
+        for(var key in sayHimix){
+          User.prototype[key] = sayHimix[key];
+
+        }
+        */
+        User.prototype = sayHimix;
+        //console.log(User);
+
+        var user =  new User("vasa");
+        //user.sayhi();
+
+    </script>
+    <script>
+        var eventmixin = {
+          on:function (evenName,halder) {
+            /*
+            if (!this._eventHandlers) ;
+            if (!this._eventHandlers[evenName]) {
+              this._eventHandlers[evenName] = [];
+            }
+          */
+            this._eventHandlers = {};
+            this._eventHandlers[evenName] = [];
+            this._eventHandlers[evenName].push(halder);
+
+          },
+          triger:function (eventName) {
+            if(!this._eventHandlers || !this._eventHandlers[eventName]){
+              return console.log('nety');
+            }
+
+            var halder  = this._eventHandlers[eventName][0];
+            halder([].slice.call(arguments, 1));
+
+            console.log(arguments);
+
+
+          }
+        };
+        function Menu() {
+
+        }
+        for(key in eventmixin){
+          Menu.prototype[key] = eventmixin[key];
+        }
+        Menu.prototype.chose =  function (value) {
+          this.triger('select',value);
+        }
+        
+        var menu = new Menu();
+        menu.on("select",function (value) {
+          console.log("Выбрано значение " + value);
+        });
+        menu.chose('555','666');
+        menu.chose('1222');
+        menu.chose('3');
+        console.log(menu);
+
+    </script>
+</head>
+<body>
+Прототипоне ооп
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>hello</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+<script>
+    function counter(n){
+
+      return{
+        count:function(){ return n++; },
+        reset:function(){ return n = 0; }
+      };
+    }
+    var o  = counter(5);
+    console.log(o.count());
+    console.log(o.count());
+    console.log(o.reset());
+    console.log(o.count());
+    /*
+    function sum() {
+    return [].reduce.call(arguments, function(a, b) {
+      return a + b;
+    });
+  }
+
+  function mul() {
+    return [].reduce.call(arguments, function(a, b) {
+      return a * b;
+    });
+  }
+
+    function applyAll(func) {
+      return func.apply(this, [].slice.call(arguments,1));
+    }
+
+    function add(a, b) { return a + b; }
+    function mult(a, b, c, d) { return a * b * c * d; }
+    
+    function partial(fn,a1){
+      return function(a2){
+        return fn(a1,a2);
+      }
+    }
+    var add5 = partial(add, 5);
+    //console.log(add5(2));
+    //console.log(add5(10));
+
+
+    // @ func - передаваемся функция, @ context - это обект
+    
+    function bind(func, context) {
+      return function() { // (*)
+        
+        return func.apply(context, arguments);
+      };
+    }
+    function f1(a,b,c,d){
+      
+    }
+    var f2 = partial(f1, 1, 2);
+    //console.log(f2(x, y));
+    
+   var user = {
+     firstname:"Вася",
+     
+     sayHI:function(arr,fn){
+       
+      console.log(arr.age);
+      console.log(this.firstname);
+      return fn.apply(arr.age);
+     }
+   };
+
+
+   var hi = bind(user.sayHI,user); 
+   console.log(hi({age:50},function(){
+     return this.age + 10;
+   }));
+
+
+   var characters = [
+    { 'name': 'barney', 'age': 36 },
+    { 'name': 'fred', 'age': 40 }
+  ];
+   
+   function pluck(obj,target) {
+     var q = [];
+     for(var mass in obj){
+       q.push( obj[mass][target] );
+     }
+     console.log(q);
+     
+   }
+   
+   console.log(pluck(characters, 'name')); // ['barney', 'fred']
+
+
+  */
+   
+   
+    
+
+    
+    
+    
+       
+</script>
+
+</head>
+<body>
+    java gg
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>hello</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+
+
+</head>
+<body>
+<div id="widget" data-widget-name="menu">Выберите жанр</div>
+
+
+<ul id="firtMultiMenu">
+  <li>Животные
+    <ul>
+      <li>Млекопитающие
+        <ul>
+          <li>Коровы</li>
+          <li>Ослы</li>
+          <li>Собаки</li>
+          <li>Тигры</li>
+        </ul>
+      </li>
+      <li>Другие
+        <ul>
+          <li>Змеи</li>
+          <li>Птицы</li>
+          <li>Ящерицы</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Рыбы
+    <ul>
+      <li>Аквариумные
+        <ul>
+          <li>Гуппи</li>
+          <li>Скалярии</li>
+        </ul>
+
+      </li>
+      <li>Морские
+        <ul>
+          <li>Морская форель</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<div class="img_wrapper lazy_load">
+    <img
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-src="img/5.jpg"
+        alt="Comic Book Guy"
+    />
+</div>
+
+   <script type="text/javascript" src="jquery.min.js"></script> 
+  <script>
+    //var widget =  widget.dataset;
+    console.log(widget.dataset.widgetName);
+
+    /*
+    var child = document.body.childNodes;
+    for(let i = 0;i<child.length;i++){
+      console.dir(child[i].data);
+    }
+    console.dir(child);
+  */
+
+    /* поиск элементов в древе ДОМ
+    var elem = document.querySelector('#firtMultiMenu').children;
+      for(let i = 0;i< elem.length;i++){
+        console.log(elem[i].firstChild.textContent);
+        console.log("firt -" + elem[i].getElementsByTagName('li').length);
+        let lvl1 = elem[i].firstElementChild;
+        for(let i = 0;i< lvl1.children.length;i++){
+          console.log("Подменю ---" + lvl1.children[i].firstChild.textContent);
+          let lvl2 = lvl1.children[i].firstElementChild.children;
+          for(let lvl3 of lvl2){
+            console.log("Под - ПОд меню -------" + lvl3.firstChild.textContent);
+          }
+
+        }
+        //console.log(lvl1.children.length);
+    }
+    */
+    
+    function lazyLoad(){
+        
+    var $images = $('.lazy_load');
+ 
+        $images.each(function(){
+            var $img = $(this),
+                src = $img.attr('data-src');
+     
+            $img
+                .on('load',imgLoaded($img[0]))
+                .attr('src',src);
+        });
+    };
+    $(window).load(function(){
+        lazyLoad();
+    };
+
+
+
+  </script>
+</body>
+</html>

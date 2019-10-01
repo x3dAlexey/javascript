@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>hello</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <script>
+    
+    // 1) Напиши функцию создания генератора 
+    function sequence(start,step){
+      return function(){
+        return start += step;
+      }
+    }
+    var generator = sequence(1, 3);
+    
+    console.log(generator());
+    console.log(generator());
+    // 2)
+    function take(func,coll){
+      var mass = [];
+      for(var i = 0; i < coll; i++){
+        mass.push(func());
+      }
+      return mass;
+    }
+    //console.log(take(generator,5));
+    
+    // 3)
+    var arr = [1,2,3];
+    function square(x) { return x * x; }
+    function map(fn, array){
+      var mass = [];
+      for(var i = 0; i < array.length; i++){
+        var m = array[i];
+        
+        mass.push(fn(m));
+      }
+      
+      return mass;
+    }
+    //console.log(map(square, arr));
+    
+    // 4)
+    function add(a, b) { 
+      return a + b; 
+    }
+
+    function fmap(a, add){
+      return function(){
+        return a(add(arguments[0],arguments[1]));
+      }
+      
+      
+    }
+    //var squareGen = fmap(square, generator);
+    var squareAdd = fmap(square, add);
+    
+    //console.log(squareAdd(2,3));
+    //console.log(squareAdd(5,7));
+    
+    
+
+      
+
+    
+    
+      
+    //alert(many(salaries));
+    
+    
+      // библиотека
+      /*
+      полки книг с разделами 
+        книги - авторы, наличие книги, номер книги, время пользования
+        пользователь, ФИО, номер карточки / карточка пользователя: дата,номер книжки, название книги
+        талончик в книжке - имя пользователя, и номер карточки
+      
+       */
+
+      //console.log(book[obj]);
+      /*
+      var razdel = {
+        fentasi:'Фантастика',
+        it:'ИТ',
+        literation:'Литература'
+      };
+      var book = {
+        name_book:'Марвел',
+        janr:razdel.fentasi,
+        autor:'комикс',
+        number:15,
+        status:false,
+        date_use:''
+        
+      };
+
+      var user = {
+        user_name:'Вася Пупкин',
+        number_kartoc:'1'
+      };
+
+      var kartoc = {
+        data_use:'',
+        number:'',
+        name_book:''
+      };
+
+
+      // кто пришел в библиотеку
+      var whois = 'Петя Петров';
+      // какую книгу просят
+      var nead_book = 'Марвел';
+
+      // есть ли книга 
+      function can_use(nead_book,book){
+         if((nead_book == book.name_book) && (book.status == true)){
+           alert('да такая есть');
+           return true;
+         }else{
+           alert('no use');
+           return false; 
+         } 
+      }
+      // проверка пользователя
+      function users(whois,user){
+        if(whois == user.name){
+          alert('вы есть в базе');
+          return true;
+        }else{
+          alert('вас нету');
+          user.user_name = whois;
+          user.number_kartoc = "2";
+        }
+      }
+      
+      
+      // запись книги
+        if(can_use(nead_book,book)){
+            alert('da');
+        }else{
+          alert('no');
+        }
+      
+
+      
+      
+
+
+      
+      
+      val = [];
+      
+
+      for(var mass in book){
+        if(mass == cat.it){
+          var m = cat.it;
+          var bb = book[mass];
+          for(var i=0; i < book[mass].length; i++){
+            var key = bb[i];
+            val[i] = {m:key};
+            var[i] = cat.it;
+          }
+
+          console.log(val);
+        }
+         
+      }
+      console.log(val);
+      */
+      
+      
+
+      
+
+
+         
+       
+    </script>
+
+</head>
+<body>
+     test asdq
+</body>
+</html>

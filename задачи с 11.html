@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>hello</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+<script>
+  // сеть гамбургеров
+  // @ size - размер
+  // @ stuffing -  начинка
+  function Hamburger(size,stuffing) {
+    this._size = size;
+    this._stuffing = stuffing;
+  }
+  Hamburger.SMAL_SIZE = {name:'Маленький',prise:50,colories:20};
+  Hamburger.BIG_SIZE  = {name:'Большой',prise:100,colories:40};
+
+  Hamburger.CEEZ   =  {name:'Сыром',prise:10,colories:20};
+  Hamburger.SALATO =  {name:'Салатом',prise:20,colories:5};
+  Hamburger.POTATO =  {name:'Кортофелем',prise:15,colories:10};
+
+  Hamburger.TOPPING_SPICE = {name:'Приправа',prise:15,colories:0};
+  Hamburger.TOPPING_MAYO  = {name:'Майонез',prise:20,colories:5};
+  // проверка аргументов Hamburger
+  Hamburger.prototype.check = function () {
+    if(!this._size && !this._stuffing) {
+      throw new Error('Выполните заказ');
+    }
+  };
+  // массив добавленых топингов
+  Hamburger.prototype.masToping = [];
+
+  // добавление топингов
+  Hamburger.prototype.addToping = function () {
+    for(var i = 0; i < arguments.length; i++){
+      this.masToping.push(arguments[i]);
+    }
+
+  };
+  // удаление топинга
+  Hamburger.prototype.removeToping = function (toping) {
+    //this.masToping.splice(toping);
+    var mass = this.masToping;
+    this.masToping.forEach(function (v,i) {
+      if(v.name == toping.name){
+        mass.splice(i,1);
+      }
+    });
+  }
+  // получение топингов
+  Hamburger.prototype.getToping = function (q) {
+
+    var sum = 0;
+     for(var i = 0; i < this.masToping.length;i++){
+       switch(q){
+         case 'name':
+           sum += this.masToping[i].name + " ";
+           break;
+         case 'prise':sum += this.masToping[i].prise;break;
+         case 'colories':sum += this.masToping[i].colories;break;
+       }
+
+     }
+     return sum;
+  }
+  Hamburger.prototype.nameToping = function () {
+    var names = this.getToping('name');
+    //console.log(names);
+    return names;
+  }
+  // Цена
+  Hamburger.prototype.calculatePrice = function () {
+    var calc = this.getToping('prise');
+    return this._size.prise + this._stuffing.prise + calc;
+
+  }
+  // Колорийность
+  Hamburger.prototype.calculateCalories = function () {
+    var calc = this.getToping('colories');
+    return this._size.prise + this._stuffing.prise + calc;
+  }
+
+  // тест функция на проверку одинаковых топингов
+  Hamburger.prototype.uniq = function (a) {
+    var seen = {};
+    return a.filter(function(item) {
+      return seen.hasOwnProperty(item) ? false : (seen[item] = true);
+    });
+  }
+
+
+  // статус заказа
+  Hamburger.prototype.Statys = function () {
+    this.check();
+
+    var html = "Ващ заказ " + this._size.name + " с " + this._stuffing.name + " и добавка " + this.nameToping()
+    + ",Стоимость - " + this.calculatePrice() + ",Калорийность - " + this.calculateCalories()
+    console.log(html);
+  };
+
+
+  var hamburger = new Hamburger(Hamburger.SMAL_SIZE,Hamburger.CEEZ);
+  //console.log(Hamburger);
+
+  hamburger.addToping(Hamburger.POTATO,Hamburger.TOPPING_SPICE,Hamburger.CEEZ);
+  // удалили приправу
+  hamburger.removeToping(Hamburger.TOPPING_SPICE);
+  console.log("Стоимость",hamburger.calculatePrice());
+  hamburger.nameToping();
+  //console.log(hamburger.masToping);
+  hamburger.Statys();
+
+</script>
+
+</head>
+<body>
+    бургерная
+</body>
+</html>
